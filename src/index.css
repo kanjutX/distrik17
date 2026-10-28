@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Bebas Neue", "Teko", sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+
+  --color-ink: #0a0908;
+  --color-ink-soft: #141211;
+  --color-blood: #e0141f;
+  --color-blood-dark: #8c0d14;
+  --color-bone: #e8e2d6;
+  --color-bone-dim: #a8a196;
+}
+
+:root {
+  color-scheme: dark;
+  --safe-t: env(safe-area-inset-top, 0px);
+  --safe-b: env(safe-area-inset-bottom, 0px);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--safe-t);
+}
+
+body {
+  background: var(--color-ink);
+  color: var(--color-bone);
+  font-family: var(--font-body);
+  padding-top: var(--safe-t);
+  padding-bottom: var(--safe-b);
+  overflow-x: hidden;
+}
+
+/*
+  ONE continuous background layer, pinned behind the whole page and
+  stretched the full scroll height. It is a texture layer only — the
+  wordmark/logo is never baked into it, it lives in the markup as its
+  own <img>, independent, always.
+*/
+.site-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -10;
+  background-image:
+    radial-gradient(ellipse 60% 45% at 50% 0%, rgba(224,20,31,0.16), transparent 70%),
+    linear-gradient(180deg, rgba(10,9,8,0.55) 0%, rgba(10,9,8,0.35) 15%, rgba(10,9,8,0.75) 55%, rgba(10,9,8,0.95) 100%),
+    url("/bg-texture.webp");
+  background-size: 100% 100vh, 100% auto, 140% auto;
+  background-position: top center, top center, top center;
+  background-repeat: no-repeat, repeat-y, repeat-y;
+  background-attachment: fixed, scroll, scroll;
+}
+
+.site-bg::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse 120% 70% at 50% 100%, transparent 50%, rgba(10,9,8,0.9) 100%);
+}
+
+.glow-pulse {
+  animation: glow-pulse 4s ease-in-out infinite;
+}
+@keyframes glow-pulse {
+  0%, 100% { filter: drop-shadow(0 0 28px rgba(224,20,31,0.35)); }
+  50% { filter: drop-shadow(0 0 48px rgba(224,20,31,0.6)); }
+}
+
+.grit-lines {
+  position: fixed;
+  inset: 0;
+  z-index: -4;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: repeating-linear-gradient(115deg, var(--color-bone) 0px, var(--color-bone) 1px, transparent 1px, transparent 90px);
+}
+
+.text-outline {
+  -webkit-text-stroke: 1.5px var(--color-ink);
+}
+
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: 0.02em;
+}
+
+.drip-underline {
+  position: relative;
+}
+.drip-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -10px;
+  height: 6px;
+  background: linear-gradient(90deg, transparent, var(--color-blood) 15%, var(--color-blood) 85%, transparent);
+  clip-path: polygon(0 0, 4% 100%, 8% 0, 12% 100%, 16% 0, 20% 100%, 24% 0, 28% 100%, 32% 0, 36% 100%, 40% 0, 44% 100%, 48% 0, 52% 100%, 56% 0, 60% 100%, 64% 0, 68% 100%, 72% 0, 76% 100%, 80% 0, 84% 100%, 88% 0, 92% 100%, 96% 0, 100% 100%, 100% 0, 0 0);
+}
+
+.card-grime {
+  background: linear-gradient(160deg, rgba(20,18,17,0.92), rgba(10,9,8,0.96));
+  border: 1px solid rgba(232,226,214,0.08);
+  box-shadow: 0 20px 50px -20px rgba(0,0,0,0.8);
+}
+
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: -5;
+  pointer-events: none;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.input {
+  background: rgba(0,0,0,0.35);
+  border: 1px solid rgba(232,226,214,0.15);
+  border-radius: 0.25rem;
+  padding: 0.55rem 0.75rem;
+  font-size: 0.875rem;
+  color: var(--color-bone);
+  outline: none;
+}
+.input:focus {
+  border-color: var(--color-blood);
+}
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--color-ink); }
+::-webkit-scrollbar-thumb { background: var(--color-blood-dark); border-radius: 999px; }
+
+@media (max-width: 640px) {
+  .site-bg { background-size: 100% 100vh, 100% auto, 260% auto; }
+}
