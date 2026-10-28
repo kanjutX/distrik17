@@ -19,3 +19,4 @@ View your app in AI Studio: https://ai.studio/apps/bea7a3a9-8552-4cb9-b003-e385f
 3. Run the app:
    `npm run dev`
 "# distrik" 
+"# distrik" 
