@@ -122,3 +122,4 @@ schema.sql      referensi struktur tabel (dibuat/dimigrasi otomatis juga oleh ap
 npm install
 vercel dev   # menjalankan frontend + /api functions sekaligus, perlu Vercel CLI + vercel link
 ```
+"# distrik17" 
