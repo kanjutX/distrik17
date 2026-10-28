@@ -1,7 +1,7 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
 import { sql, ensureSchema, genId } from '../_lib/db.js'
 import { getUserFromRequest } from '../_lib/auth.js'
-import type { GachaRarity } from '../../src/lib/types'
+import type { GachaRarity } from '../../src/lib/types.js'
 import { withErrors } from '../_lib/http.js'
 
 // Purely cosmetic flavor pool for the fake avatar's "archive identity" —

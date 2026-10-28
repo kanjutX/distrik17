@@ -2,8 +2,14 @@ import pg from 'pg'
 
 const { Pool } = pg
 
+// Vercel Storage (Neon / Supabase / Prisma Postgres) injects different names
+// depending on the provider, so accept any of them. Pooled URL first.
 const connectionString =
-  process.env.POSTGRES_URL || process.env.POSTGRES_PRISMA_URL || process.env.DATABASE_URL
+  process.env.POSTGRES_URL ||
+  process.env.DATABASE_URL ||
+  process.env.POSTGRES_PRISMA_URL ||
+  process.env.POSTGRES_URL_NON_POOLING ||
+  process.env.DATABASE_URL_UNPOOLED
 
 if (!connectionString) {
   // Fails loudly instead of letting every endpoint 500 with a cryptic

@@ -2,7 +2,7 @@ import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 import type { VercelRequest } from '@vercel/node'
 import { sql } from './db.js'
-import type { User } from '../../src/lib/types'
+import type { User } from '../../src/lib/types.js'
 
 // No silent fallback in production: a guessable default secret would let anyone forge an owner token.
 const JWT_SECRET =
