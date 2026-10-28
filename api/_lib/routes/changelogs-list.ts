@@ -1,7 +1,7 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
-import { sql, ensureSchema, genId } from '../_lib/db.js'
-import { getUserFromRequest } from '../_lib/auth.js'
-import { isHttpUrl, withErrors } from '../_lib/http.js'
+import { sql, ensureSchema, genId } from '../db.js'
+import { getUserFromRequest } from '../auth.js'
+import { isHttpUrl, withErrors } from '../http.js'
 
 const TAGS = ['major', 'minor', 'hotfix']
 const CHANGE_TYPES = ['add', 'fix', 'change', 'remove']

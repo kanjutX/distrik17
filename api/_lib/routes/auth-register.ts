@@ -1,7 +1,7 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
-import { sql, ensureSchema, genId } from '../_lib/db.js'
-import { hashPassword, signToken, rowToUser } from '../_lib/auth.js'
-import { withErrors } from '../_lib/http.js'
+import { sql, ensureSchema, genId } from '../db.js'
+import { hashPassword, signToken, rowToUser } from '../auth.js'
+import { withErrors } from '../http.js'
 
 const USERNAME_RE = /^[A-Za-z0-9_.]{3,24}$/
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/

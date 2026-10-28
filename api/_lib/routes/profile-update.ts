@@ -1,7 +1,7 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
-import { sql, ensureSchema } from '../_lib/db.js'
-import { getUserFromRequest, rowToUser } from '../_lib/auth.js'
-import { withErrors } from '../_lib/http.js'
+import { sql, ensureSchema } from '../db.js'
+import { getUserFromRequest, rowToUser } from '../auth.js'
+import { withErrors } from '../http.js'
 
 const MAX_AVATAR_BYTES = 350_000 // ~350KB — uploads are resized/compressed client-side before this is hit
 

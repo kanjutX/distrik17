@@ -1,7 +1,7 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
-import { ensureSchema, getSettings, setSetting } from '../_lib/db.js'
-import { getUserFromRequest } from '../_lib/auth.js'
-import { isHttpUrl, withErrors } from '../_lib/http.js'
+import { ensureSchema, getSettings, setSetting } from './_lib/db.js'
+import { getUserFromRequest } from './_lib/auth.js'
+import { isHttpUrl, withErrors } from './_lib/http.js'
 
 const KEYS = ['release_phase', 'release_date', 'donate_link']
 

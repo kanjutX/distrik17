@@ -3,9 +3,14 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
+    { "source": "/api/auth/:action", "destination": "/api/auth?action=:action" },
+    { "source": "/api/profile/roblox/:sub", "destination": "/api/profile?sub=:sub" },
+    { "source": "/api/reviews/:id/like", "destination": "/api/reviews?id=:id&action=like" },
+    { "source": "/api/reviews/:id", "destination": "/api/reviews?id=:id" },
+    { "source": "/api/changelogs/:id", "destination": "/api/changelogs?id=:id" },
+    { "source": "/api/milestones/:id", "destination": "/api/milestones?id=:id" },
+    { "source": "/api/announcements/:id", "destination": "/api/announcements?id=:id" },
+    { "source": "/api/users/:id/avatar", "destination": "/api/users?id=:id&action=avatar" },
+    { "source": "/((?!api/).*)", "destination": "/index.html" }
   ]
 }

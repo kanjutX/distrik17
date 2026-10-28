@@ -1,7 +1,7 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
-import { sql, ensureSchema } from '../../_lib/db.js'
-import { getUserFromRequest } from '../../_lib/auth.js'
-import { withErrors } from '../../_lib/http.js'
+import { sql, ensureSchema } from '../db.js'
+import { getUserFromRequest } from '../auth.js'
+import { withErrors } from '../http.js'
 
 // DELETE /api/reviews/:id — the review's author or the owner (moderation).
 async function handler(req: VercelRequest, res: VercelResponse) {

@@ -1,7 +1,7 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
-import { sql, ensureSchema, genId } from '../_lib/db.js'
-import { getUserFromRequest } from '../_lib/auth.js'
-import { withErrors } from '../_lib/http.js'
+import { sql, ensureSchema, genId } from '../db.js'
+import { getUserFromRequest } from '../auth.js'
+import { withErrors } from '../http.js'
 
 const CATEGORIES = ['Gameplay', 'Map & Lokasi', 'Combat', 'Voice Acting', 'Bug Report', 'Saran Fitur']
 

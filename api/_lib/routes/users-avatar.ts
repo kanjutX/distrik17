@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
-import { sql, ensureSchema } from '../../_lib/db.js'
-import { withErrors } from '../../_lib/http.js'
+import { sql, ensureSchema } from '../db.js'
+import { withErrors } from '../http.js'
 
 // Serves an uploaded (base64) avatar as a real image so lists don't have to inline it.
 async function handler(req: VercelRequest, res: VercelResponse) {
